@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#101114"><link rel="manifest" href="manifest.json">
+<title>Meu Treino</title>
+<style>
+:root{--bg:#101114;--panel:#1b1d22;--panel2:#242730;--text:#f4f5f7;--muted:#a6aab4;--accent:#b7f36b;--line:#343741}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font:15px system-ui,-apple-system,sans-serif;padding:0 0 90px}
+header{padding:24px 18px 16px;background:linear-gradient(140deg,#20252a,#111318)}h1{font-size:27px;margin:0}header p{color:var(--muted);margin:5px 0 0}
+main{max-width:720px;margin:auto;padding:16px}.tabs{display:flex;gap:8px;overflow:auto;padding:4px 0 14px}.tab,button{border:0;border-radius:12px;padding:11px 14px;background:var(--panel2);color:var(--text);font-weight:650}.tab.active,button.primary{background:var(--accent);color:#151a10}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:17px;padding:15px;margin:10px 0}.muted{color:var(--muted)}.exercise{padding:13px 0;border-top:1px solid var(--line)}.exercise:first-child{border:0}.exname{font-weight:700}.meta{font-size:13px;color:var(--muted);margin:3px 0 10px}
+.inputs{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}.inputs label{font-size:11px;color:var(--muted)}input{width:100%;margin-top:4px;padding:10px;border-radius:10px;border:1px solid var(--line);background:#111318;color:var(--text);font-size:15px}
+.done{display:flex;align-items:center;gap:8px;margin-top:10px;color:var(--accent)}.done input{width:18px;height:18px;margin:0}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}.stat{background:var(--panel2);padding:13px;border-radius:13px}.stat strong{font-size:23px;display:block}.actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+section h2{font-size:19px;margin:18px 0 8px}.small{font-size:12px}.bottom{position:fixed;bottom:0;left:0;right:0;background:#15171c;border-top:1px solid var(--line);display:flex;justify-content:center;gap:8px;padding:10px env(safe-area-inset-right) calc(10px + env(safe-area-inset-bottom))}
+.bottom button{flex:1;max-width:220px}.hidden{display:none}.notice{background:#272d20;color:#d9f5b8;padding:12px;border-radius:12px;font-size:13px}
+</style></head>
+<body>
+<header><h1>MEU TREINO</h1><p>Registre. Compare. Evolua.</p></header>
+<main>
+<div class="notice" id="saveNotice">Entre com Google para sincronizar seus treinos na nuvem. Até entrar, os registros ficam neste aparelho.</div>
+<div class="tabs" id="days"></div>
+<div id="workout"></div>
+<section id="progress" class="hidden">
+<h2>Minha evolução</h2><div class="grid">
+<div class="stat"><span class="muted small">Treinos registrados</span><strong id="count">0</strong></div>
+<div class="stat"><span class="muted small">Exercícios registrados</span><strong id="excount">0</strong></div></div>
+<div class="card"><h3>Histórico por exercício</h3><select id="exerciseSelect" style="width:100%;padding:12px;background:#111318;color:white;border:1px solid #343741;border-radius:10px"></select><div id="history" class="muted" style="margin-top:12px"></div></div>
+<div class="card"><h3>Medidas corporais</h3><div class="inputs">
+<label>Peso (kg)<input id="weight" type="number" step=".1"></label><label>Braço (cm)<input id="arm" type="number" step=".1"></label><label>Antebraço (cm)<input id="forearm" type="number" step=".1"></label>
+<label>Cintura (cm)<input id="waist" type="number" step=".1"></label><label>Coxa (cm)<input id="thigh" type="number" step=".1"></label><label>Panturrilha (cm)<input id="calf" type="number" step=".1"></label></div><button class="primary" onclick="saveMeasures()" style="margin-top:12px">Salvar medidas</button><div id="measureHistory" class="muted small" style="margin-top:10px"></div></div>
+</section>
+<section id="account" class="hidden"><h2>Conta e dados</h2><div class="card"><p id="authStatus">Você não entrou com uma conta Google.</p><button class="primary" id="loginBtn" onclick="loginGoogle()">Entrar com Google</button> <button id="logoutBtn" onclick="logoutGoogle()" class="hidden">Sair da conta</button><p class="muted small">Depois do login, os registros serão sincronizados com sua conta Google neste projeto Firebase.</p><button onclick="exportData()">Exportar meus dados</button> <button onclick="document.getElementById('importFile').click()">Importar backup</button><input id="importFile" type="file" accept="application/json" class="hidden" onchange="importData(event)"></div></section>
+</main>
+<nav class="bottom"><button class="primary" onclick="showPage('workout')">Treino</button><button onclick="showPage('progress')">Evolução</button><button onclick="showPage('account')">Conta</button></nav>
+<script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore-compat.js"></script>
+<script src="app.js"></script>
+</body></html>

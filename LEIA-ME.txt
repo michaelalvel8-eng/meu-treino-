@@ -1,0 +1,15 @@
+MEU TREINO — versão com Firebase
+
+Esta versão contém login Google e sincronização com Cloud Firestore para o projeto meu-treino-7bf42.
+
+ANTES DE PUBLICAR:
+1. No Firebase Console > Authentication > Configurações, adicione o domínio do site em Domínios autorizados (por exemplo, meu-treino-7bf42.web.app depois de publicar).
+2. Confirme que o provedor Google está ativado.
+3. Confirme que as regras do Firestore permitem somente o UID autenticado acessar users/{uid}/...
+4. Publique os arquivos index.html, app.js, manifest.json e sw.js na raiz do Firebase Hosting.
+
+IMPORTANTE:
+- O login popup pode não funcionar em alguns contextos de navegador móvel; a versão tenta usar redirect como alternativa.
+- Teste primeiro com dados sem sensibilidade.
+- O Firebase Web API key é identificador público; segurança depende das regras do Firestore e dos domínios autorizados.
+- A publicação no Hosting ainda precisa ser feita. Este ZIP não está hospedado automaticamente.
