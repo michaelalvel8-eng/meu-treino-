@@ -7,8 +7,9 @@ const plans={
 const firebaseConfig={apiKey:"AIzaSyBZ6El7pVlEhLb_C_NgKlnDpv_pIfSU9cc",authDomain:"meu-treino-7bf42.firebaseapp.com",projectId:"meu-treino-7bf42",storageBucket:"meu-treino-7bf42.firebasestorage.app",messagingSenderId:"758229734628",appId:"1:758229734628:web:930796c77111127c14c8f1",measurementId:"G-12BP05S8VG"};
 firebase.initializeApp(firebaseConfig);const auth=firebase.auth(),db=firebase.firestore();
 const KEY="meuTreinoDataV1";let data=JSON.parse(localStorage.getItem(KEY)||'{"logs":[],"measures":[],"cardioLogs":[]}');data.logs=data.logs||[];data.measures=data.measures||[];data.cardioLogs=data.cardioLogs||[];let day="Segunda",currentUser=null,loadingCloud=false,workoutPhotos=[];
-let restInterval=null,restRemaining=0,restEndAt=0,restPaused=false;let calendarCursor=new Date(),selectedPhotoDate=today();
+let restInterval=null,restRemaining=0,restEndAt=0,restPaused=false;
 const today=()=>{const d=new Date();return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`};
+let calendarCursor=new Date(),selectedPhotoDate=today();
 const saveLocal=()=>localStorage.setItem(KEY,JSON.stringify(data));
 async function save(){saveLocal();if(currentUser&&!loadingCloud){try{await db.collection('users').doc(currentUser.uid).collection('appData').doc('main').set({...data,updatedAt:firebase.firestore.FieldValue.serverTimestamp()});document.getElementById('saveNotice').textContent='Sincronizado com sua conta Google.'}catch(e){document.getElementById('saveNotice').textContent='Não foi possível sincronizar: '+e.message+' — seus dados continuam neste aparelho.'}}}
 async function loginGoogle(){const provider=new firebase.auth.GoogleAuthProvider();try{await auth.signInWithPopup(provider)}catch(e){if(e.code==='auth/popup-blocked'||e.code==='auth/operation-not-supported-in-this-environment'){try{await auth.signInWithRedirect(provider)}catch(err){alert('Não consegui abrir o login. Confira o domínio autorizado no Firebase: '+err.message)}}else alert('Falha no login: '+e.message)}}
