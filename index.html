@@ -16,6 +16,14 @@ main{max-width:720px;margin:auto;padding:16px}.tabs{display:flex;gap:8px;overflo
 section h2{font-size:19px;margin:18px 0 8px}.small{font-size:12px}.bottom{position:fixed;bottom:0;left:0;right:0;background:#15171c;border-top:1px solid var(--line);display:flex;justify-content:center;gap:8px;padding:10px env(safe-area-inset-right) calc(10px + env(safe-area-inset-bottom))}
 .bottom button{flex:1;max-width:220px}.hidden{display:none}.notice{background:#272d20;color:#d9f5b8;padding:12px;border-radius:12px;font-size:13px}
 .rest-panel{background:#202a1a;border:1px solid #526d35;border-radius:15px;padding:13px;margin:12px 0;color:#eaffd5}.rest-time{font-size:32px;font-weight:800;letter-spacing:1px;text-align:center;margin:5px 0}.rest-controls{display:flex;gap:7px;flex-wrap:wrap}.rest-controls button{flex:1;min-width:90px}.calendar-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:5px;text-align:center}.calendar-day{padding:9px 2px;border-radius:9px;background:var(--panel2);font-size:13px}.calendar-day.trained{background:var(--accent);color:#151a10;font-weight:800}.calendar-day.today{outline:2px solid #fff}.calendar-day.has-photo{box-shadow:inset 0 -3px 0 #f4c95d}.calendar-day.selected{outline:2px solid #f4c95d}.calendar-day{cursor:pointer;min-height:46px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px}.calendar-day .day-label{font-size:9px;line-height:1.1;font-weight:700;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.calendar-day.trained .day-label{color:#151a10}.photo-day-note{margin-top:10px;padding:10px;border-radius:10px;background:var(--panel2)}.calendar-head{color:var(--muted);font-size:11px;padding:4px 0}.muscle-chip{display:inline-block;background:#344326;color:#e5ffc8;border:1px solid #617c43;border-radius:30px;padding:7px 11px;margin:4px 4px 0 0;font-size:13px}.suggestion{background:#202a1a;border:1px solid #526d35;border-radius:12px;padding:11px;margin-top:10px;color:#eaffd5}.cardio-field{display:block;font-size:12px;color:var(--muted);margin:9px 0}.cardio-field input,.cardio-field select{display:block;width:100%;padding:11px;border-radius:10px;border:1px solid var(--line);background:#111318;color:var(--text);margin-top:5px}.cardio-recommend{background:#202a1a;border:1px solid #526d35;border-radius:12px;padding:12px;margin:10px 0;color:#eaffd5}.cardio-log{padding:10px 0;border-top:1px solid var(--line)}.rest-select{padding:10px;border-radius:10px;background:#111318;color:white;border:1px solid var(--line);width:100%;margin:6px 0 10px}
+
+.personalize-banner{display:flex;flex-direction:column;gap:12px;padding:16px;margin:12px 0 16px;border:2px solid #b7f36b;border-radius:16px;background:linear-gradient(135deg,rgba(183,243,107,.16),rgba(183,243,107,.04));box-shadow:0 8px 24px rgba(0,0,0,.18)}
+.personalize-banner strong{display:block;font-size:1.08rem;color:var(--text)}
+.personalize-banner p{margin:5px 0 0;color:var(--muted);font-size:.9rem;line-height:1.4}
+.personalize-button{width:100%;min-height:48px;font-weight:800;letter-spacing:.02em;font-size:.96rem}
+.personalize-banner.locked{border-color:var(--border);background:var(--panel)}
+@media(min-width:600px){.personalize-banner{flex-direction:row;align-items:center;justify-content:space-between}.personalize-button{width:auto;min-width:230px}}
+
 </style></head>
 <body>
 <header><h1>MEU TREINO</h1><p>Registre. Compare. Evolua.</p></header>
@@ -51,5 +59,5 @@ section h2{font-size:19px;margin:18px 0 8px}.small{font-size:12px}.bottom{positi
 <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-auth-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore-compat.js"></script>
-<script src="app.js?v=12"></script>
+<script src="app.js?v=12.1"></script>
 </body></html>
