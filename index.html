@@ -45,11 +45,11 @@ section h2{font-size:19px;margin:18px 0 8px}.small{font-size:12px}.bottom{positi
 <label class="cardio-field">Distância em km (opcional)<input id="cardioDistance" type="number" min="0" step="0.1" placeholder="Ex.: 2,5"></label>
 <button class="primary" onclick="saveCardio()">Salvar cardio</button><p class="muted small">Calorias não são estimadas para evitar números imprecisos. Registre apenas o que você mediu.</p></div>
 <div class="card"><h3>Meu histórico de cardio</h3><div id="cardioHistory" class="muted small"></div></div></section>
-<section id="account" class="hidden"><h2>Conta e dados</h2><div class="card"><p id="authStatus">Você não entrou com uma conta Google.</p><button class="primary" id="loginBtn" onclick="loginGoogle()">Entrar com Google</button> <button id="logoutBtn" onclick="logoutGoogle()" class="hidden">Sair da conta</button><p class="muted small">Depois do login, os registros serão sincronizados com sua conta Google neste projeto Firebase.</p><button onclick="exportData()">Exportar meus dados</button> <button onclick="document.getElementById('importFile').click()">Importar backup</button><input id="importFile" type="file" accept="application/json" class="hidden" onchange="importData(event)"></div></section>
+<section id="account" class="hidden"><h2>Conta e dados</h2><div class="card"><p id="authStatus">Você não entrou com uma conta Google.</p><button class="primary" id="loginBtn" onclick="loginGoogle()">Entrar com Google</button> <button id="logoutBtn" onclick="logoutGoogle()" class="hidden">Sair da conta</button><p class="muted small">Depois do login, seus registros e seu treino personalizado serão sincronizados com sua conta Google. Sem login, o treino padrão permanece protegido.</p><button onclick="exportData()">Exportar meus dados</button> <button onclick="document.getElementById('importFile').click()">Importar backup</button><input id="importFile" type="file" accept="application/json" class="hidden" onchange="importData(event)"></div></section>
 </main>
 <nav class="bottom"><button class="primary" onclick="showPage('workout')">Treino</button><button onclick="showPage('progress')">Evolução</button><button onclick="showPage('cardio')">Cardio</button><button onclick="showPage('account')">Conta</button></nav>
 <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-auth-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore-compat.js"></script>
-<script src="app.js?v=11"></script>
+<script src="app.js?v=12"></script>
 </body></html>
