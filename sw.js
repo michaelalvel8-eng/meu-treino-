@@ -1,4 +1,4 @@
-const CACHE_NAME = 'meu-treino-v12-1';
+const CACHE_NAME = 'meu-treino-v12-1v12-2-visual';
 const CORE = ['./', './index.html', './manifest.json'];
 self.addEventListener('install', event => {
   self.skipWaiting();
