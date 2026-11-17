@@ -1,9 +1,10 @@
 {
-  "name": "Meu Treino",
+  "name": "Meu Treino v13",
   "short_name": "Meu Treino",
   "start_url": "./",
   "display": "standalone",
-  "background_color": "#101114",
-  "theme_color": "#101114",
-  "icons": []
+  "background_color": "#090d0b",
+  "theme_color": "#090d0b",
+  "icons": [],
+  "description": "Registro de musculação, evolução, cardio e planejamento de treinos."
 }
